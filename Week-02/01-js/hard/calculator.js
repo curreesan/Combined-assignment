@@ -17,6 +17,109 @@
   - `npm run test-calculator`
 */
 
-class Calculator { }
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(num) {
+    this.result += num;
+  }
+
+  subtract(num) {
+    this.result -= num;
+  }
+
+  multiply(num) {
+    this.result *= num;
+  }
+
+  divide(num) {
+    if (num === 0) {
+      throw new Error("Division by zero");
+    }
+    this.result /= num;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    const cleaned = expression.replace(/\s+/g, "");
+
+    if (!/^[0-9+\-*/().]+$/.test(cleaned)) {
+      throw new Error("Invalid characters in expression");
+    }
+
+    let depth = 0;
+    for (const ch of cleaned) {
+      if (ch === "(") depth++;
+      if (ch === ")") depth--;
+      if (depth < 0) throw new Error("Unbalanced parentheses");
+    }
+    if (depth !== 0) throw new Error("Unbalanced parentheses");
+
+    let pos = 0;
+
+    const peek = () => cleaned[pos];
+    const consume = () => cleaned[pos++];
+
+    function parseFactor() {
+      if (peek() === "(") {
+        consume(); // '('
+        const value = parseExpression();
+        if (peek() !== ")") throw new Error("Unbalanced parentheses");
+        consume(); // ')'
+        return value;
+      }
+
+      let numStr = "";
+      while (pos < cleaned.length && /[0-9.]/.test(peek())) {
+        numStr += consume();
+      }
+      if (numStr === "") throw new Error("Invalid expression");
+      return Number(numStr);
+    }
+
+    function parseTerm() {
+      let value = parseFactor();
+      while (peek() === "*" || peek() === "/") {
+        const op = consume();
+        const next = parseFactor();
+        if (op === "*") {
+          value *= next;
+        } else {
+          if (next === 0) throw new Error("Division by zero");
+          value /= next;
+        }
+      }
+      return value;
+    }
+
+    function parseExpression() {
+      let value = parseTerm();
+      while (peek() === "+" || peek() === "-") {
+        const op = consume();
+        const next = parseTerm();
+        value = op === "+" ? value + next : value - next;
+      }
+      return value;
+    }
+
+    const result = parseExpression();
+
+    if (pos !== cleaned.length) {
+      throw new Error("Invalid expression");
+    }
+
+    this.result = result;
+    return this.result;
+  }
+}
 
 module.exports = Calculator;
