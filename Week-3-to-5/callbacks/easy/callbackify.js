@@ -9,7 +9,13 @@
 
 
 function callbackify(fn) {
+  return function (...args) {
+    const callback = args.pop(); // last argument is always the callback
 
+    fn(...args)
+      .then((data) => callback(null, data)) // success: (null, data)
+      .catch((err) => callback(err)); // failure: (err)
+  };
 }
 
 module.exports = callbackify;

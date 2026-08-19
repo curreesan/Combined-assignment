@@ -7,19 +7,9 @@
 
 
 function retryOnce(fn) {
-    return function (...args) {
-      const finalCallback = args.pop();
-  
-      fn(...args, (err1, result1) => {
-        if (!err1) {
-          return finalCallback(null, result1);
-        }
-  
-        fn(...args, (err2, result2) => {
-          finalCallback(err2, result2);
-        });
-      });
-    };
-  }
-  
+  return function (...args) {
+    return fn(...args).catch(() => fn(...args));
+  };
+}
+
   module.exports = retryOnce;

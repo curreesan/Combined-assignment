@@ -7,7 +7,23 @@
 // the callback with the same result (or error) from the first invocation.
 
 function once(fn) {
+  let called = false;
+  let savedArgs = null;
 
+  return function (...args) {
+    const callback = args.pop();
+
+    if (called) {
+      callback(...savedArgs);
+      return;
+    }
+
+    called = true;
+    fn(...args, (...result) => {
+      savedArgs = result;
+      callback(...result);
+    });
+  };
 }
 
 module.exports = once;
