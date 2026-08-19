@@ -9,13 +9,41 @@
 //
 // Each task must invoke its callback when finished.
 class DynamicPriorityQueue {
-  constructor(concurrency) {}
+  constructor(concurrency) {
+    this.limit = concurrency;
+    this.running = 0;
+    this.queue = [];
+  }
 
-  setLimit(newLimit) {}
+  setLimit(newLimit) {
+    this.limit = newLimit;
+    this.runNext();
+  }
 
-  add(task, priority, onComplete) {}
+  add(task, priority, onComplete) {
+    this.queue.push({ task, priority, onComplete });
+    this.runNext();
+  }
 
-  runNext() {}
+  runNext() {
+    while (this.running < this.limit && this.queue.length > 0) {
+      let bestIndex = 0;
+      for (let i = 1; i < this.queue.length; i++) {
+        if (this.queue[i].priority > this.queue[bestIndex].priority) {
+          bestIndex = i;
+        }
+      }
+
+      const { task, onComplete } = this.queue.splice(bestIndex, 1)[0];
+      this.running++;
+
+      task((err, result) => {
+        this.running--;
+        onComplete(err, result);
+        this.runNext();
+      });
+    }
+  }
 }
 
 module.exports = DynamicPriorityQueue;
