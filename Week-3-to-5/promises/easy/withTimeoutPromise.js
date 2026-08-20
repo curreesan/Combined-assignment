@@ -1,4 +1,3 @@
-
 // // Problem Description – Promise Timeout (Race Against Time)
 // //
 // // You are given a promise and a timeout duration in milliseconds.
@@ -9,7 +8,15 @@
 // // 2. Reject with "Request Timed Out" if it takes longer than ms
 
 function withTimeoutPromise(promise, ms) {
+  let timeoutId;
 
+  const timeout = new Promise((_, reject) => {
+    timeoutId = setTimeout(() => reject("Request Timed Out"), ms);
+  });
+
+  return Promise.race([promise, timeout]).finally(() =>
+    clearTimeout(timeoutId),
+  );
 }
 
 module.exports = withTimeoutPromise;
