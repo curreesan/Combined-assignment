@@ -1,0 +1,23 @@
+{
+  "JavaScript": [
+    { "question": "What keyword declares a block-scoped variable?", "answer": "let" },
+    { "question": "What does '===' check that '==' doesn't?", "answer": "Type (strict equality, no coercion)" },
+    { "question": "What method converts a JSON string into a JS object?", "answer": "JSON.parse()" },
+    { "question": "What is a closure?", "answer": "A function that remembers variables from its outer scope" },
+    { "question": "What does 'NaN' stand for?", "answer": "Not a Number" }
+  ],
+  "HTML": [
+    { "question": "What tag is used for the largest heading?", "answer": "<h1>" },
+    { "question": "What attribute specifies an image's alternate text?", "answer": "alt" },
+    { "question": "What tag embeds a hyperlink?", "answer": "<a>" },
+    { "question": "What element defines the document's metadata?", "answer": "<head>" },
+    { "question": "What tag creates an ordered list?", "answer": "<ol>" }
+  ],
+  "CSS": [
+    { "question": "What property changes text color?", "answer": "color" },
+    { "question": "What does 'flex-direction: column' do?", "answer": "Stacks flex items vertically" },
+    { "question": "What unit is relative to the root font size?", "answer": "rem" },
+    { "question": "What property adds space inside an element's border?", "answer": "padding" },
+    { "question": "What selector targets an element's direct children?", "answer": "> (child combinator)" }
+  ]
+}

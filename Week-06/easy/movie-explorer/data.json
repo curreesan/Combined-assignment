@@ -1,0 +1,12 @@
+[
+  { "title": "Steel Horizon", "genre": "Action", "rating": 7.8, "overview": "A soldier races against time to stop a rogue satellite strike.", "poster": "https://picsum.photos/seed/steelhorizon/300/450" },
+  { "title": "Nightfall Protocol", "genre": "Action", "rating": 6.9, "overview": "An ex-agent is pulled back in for one last impossible heist.", "poster": "https://picsum.photos/seed/nightfall/300/450" },
+  { "title": "Laugh Track", "genre": "Comedy", "rating": 6.2, "overview": "A washed-up comedian gets a second shot at fame in the worst way possible.", "poster": "https://picsum.photos/seed/laughtrack/300/450" },
+  { "title": "Office Chaos", "genre": "Comedy", "rating": 7.1, "overview": "A new intern accidentally becomes the company's acting CEO for a day.", "poster": "https://picsum.photos/seed/officechaos/300/450" },
+  { "title": "Quiet Rivers", "genre": "Drama", "rating": 8.4, "overview": "Two estranged siblings reconnect after their father's passing.", "poster": "https://picsum.photos/seed/quietrivers/300/450" },
+  { "title": "The Long Winter", "genre": "Drama", "rating": 8.0, "overview": "A family struggles to survive an unforgiving season in rural isolation.", "poster": "https://picsum.photos/seed/longwinter/300/450" },
+  { "title": "Beyond the Nebula", "genre": "Sci-Fi", "rating": 7.6, "overview": "A crew wakes from cryosleep to find their ship centuries off course.", "poster": "https://picsum.photos/seed/nebula/300/450" },
+  { "title": "Synthetic Minds", "genre": "Sci-Fi", "rating": 8.2, "overview": "An AI researcher discovers her latest creation may already be self-aware.", "poster": "https://picsum.photos/seed/syntheticminds/300/450" },
+  { "title": "Hollow Manor", "genre": "Horror", "rating": 6.5, "overview": "A family inherits a house that remembers everyone who has ever lived there.", "poster": "https://picsum.photos/seed/hollowmanor/300/450" },
+  { "title": "Static", "genre": "Horror", "rating": 7.0, "overview": "A late-night radio host starts receiving calls from listeners who don't exist.", "poster": "https://picsum.photos/seed/static/300/450" }
+]

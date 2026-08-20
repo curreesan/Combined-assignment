@@ -1,0 +1,12 @@
+[
+  { "title": "Margherita Pizza", "cuisine": "Italian", "description": "A classic pizza with fresh tomatoes, mozzarella, and basil.", "image": "https://picsum.photos/seed/margherita/300/200" },
+  { "title": "Spaghetti Carbonara", "cuisine": "Italian", "description": "Creamy pasta with pancetta, egg, and parmesan.", "image": "https://picsum.photos/seed/carbonara/300/200" },
+  { "title": "Chicken Tikka Masala", "cuisine": "Indian", "description": "Grilled chicken simmered in a spiced, creamy tomato sauce.", "image": "https://picsum.photos/seed/tikkamasala/300/200" },
+  { "title": "Paneer Butter Masala", "cuisine": "Indian", "description": "Soft paneer cubes in a rich, buttery tomato gravy.", "image": "https://picsum.photos/seed/paneerbutter/300/200" },
+  { "title": "Beef Tacos", "cuisine": "Mexican", "description": "Seasoned ground beef in soft tortillas with fresh toppings.", "image": "https://picsum.photos/seed/beeftacos/300/200" },
+  { "title": "Guacamole", "cuisine": "Mexican", "description": "Fresh avocado dip with lime, cilantro, and onion.", "image": "https://picsum.photos/seed/guacamole/300/200" },
+  { "title": "Pad Thai", "cuisine": "Thai", "description": "Stir-fried rice noodles with shrimp, peanuts, and tamarind sauce.", "image": "https://picsum.photos/seed/padthai/300/200" },
+  { "title": "Green Curry", "cuisine": "Thai", "description": "A fragrant coconut curry with vegetables and Thai basil.", "image": "https://picsum.photos/seed/greencurry/300/200" },
+  { "title": "Sushi Rolls", "cuisine": "Japanese", "description": "Fresh rice rolls filled with fish, vegetables, and seaweed.", "image": "https://picsum.photos/seed/sushirolls/300/200" },
+  { "title": "Miso Ramen", "cuisine": "Japanese", "description": "A warm noodle soup with a savory miso-based broth.", "image": "https://picsum.photos/seed/misoramen/300/200" }
+]

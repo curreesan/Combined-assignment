@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcard Learning App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="app">
+
+    <!-- Setup Screen -->
+    <section id="setup-screen" class="screen">
+      <h1>Flashcard Learning App</h1>
+
+      <form id="setup-form">
+        <label for="topic-select">Choose a topic</label>
+        <select id="topic-select" required></select>
+
+        <label for="question-count">Number of questions</label>
+        <input type="number" id="question-count" min="1" value="5" required />
+
+        <button type="submit">Start Quiz</button>
+      </form>
+    </section>
+
+    <!-- Flashcard Screen -->
+    <section id="quiz-screen" class="screen hidden">
+      <div class="card" id="flashcard">
+        <div class="card-inner">
+          <div class="card-face card-front">
+            <p id="question-text"></p>
+            <button id="flip-btn">Show Answer</button>
+          </div>
+          <div class="card-face card-back">
+            <p id="answer-text"></p>
+            <div class="grade-buttons">
+              <button id="wrong-btn" class="btn-wrong">Got it Wrong</button>
+              <button id="correct-btn" class="btn-correct">Got it Right</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Screen -->
+    <section id="results-screen" class="screen hidden">
+      <h1>Quiz Complete!</h1>
+      <p id="score-text"></p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
