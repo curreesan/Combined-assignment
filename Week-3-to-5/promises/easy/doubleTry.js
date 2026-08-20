@@ -10,10 +10,7 @@
 async function doubleTry(fn) {
   try {
     return await fn();
-  } catch {
-    err;
-  }
-  {
+  } catch (err) {
     return await fn();
   }
 }
