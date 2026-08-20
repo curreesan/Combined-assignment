@@ -1,6 +1,6 @@
 // Problem Description – Rewrite Async/Await Using Promise Chaining
 
-// You are given an asynchronous function written using async and await. 
+// You are given an asynchronous function written using async and await.
 // Your task is to rewrite the same logic using only .then() and .catch() syntax, without changing its behavior.
 
 // async function getUserPosts(userId) {
@@ -14,6 +14,12 @@
 
 // module.exports = getUserPosts;
 
-function getUserPosts(userId) {}
+function getUserPosts(userId) {
+  return fetchUser(userId).then(
+    fetchPosts(userId.id)
+      .then((posts) => posts)
+      .catch((err) => console.error(err)),
+  );
+}
 
 module.exports = getUserPosts;
