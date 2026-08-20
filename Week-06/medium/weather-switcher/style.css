@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+  max-width: 400px;
+  margin: 2rem auto;
+  text-align: center;
+  transition: background 0.5s;
+  min-height: 100vh;
+  padding-top: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+#search-form {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+#weather-icon {
+  font-size: 3rem;
+  margin: 0;
+}
+
+#temperature-text {
+  font-size: 2rem;
+  margin: 0;
+}
+
+#override-controls {
+  margin-top: 2rem;
+}
