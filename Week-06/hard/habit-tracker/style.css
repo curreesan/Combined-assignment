@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+#add-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.column {
+  border: 1px solid black;
+  padding: 0.5rem;
+  min-height: 200px;
+}
+
+.habit-list {
+  min-height: 150px;
+}
+
+.habit-card {
+  border: 1px solid gray;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: grab;
+  display: flex;
+  justify-content: space-between;
+}

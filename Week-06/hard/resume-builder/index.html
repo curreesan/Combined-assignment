@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Section Builder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Resume Section Builder</h1>
+
+  <div id="app">
+    <div id="editor">
+      <form id="add-form">
+        <input type="text" id="title-input" placeholder="Section title (e.g. Skills)" required />
+        <textarea id="content-input" placeholder="Section content" required></textarea>
+        <button type="submit">Add Section</button>
+      </form>
+
+      <div id="sections-list"></div>
+    </div>
+
+    <div id="preview">
+      <h2>Preview</h2>
+      <div id="preview-content"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

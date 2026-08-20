@@ -1,0 +1,30 @@
+body {
+  font-family: sans-serif;
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+#controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}

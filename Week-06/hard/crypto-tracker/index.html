@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypto Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Crypto Tracker</h1>
+
+  <div id="controls">
+    <input type="text" id="search-input" placeholder="Search coins..." />
+
+    <label for="currency-select">Currency</label>
+    <select id="currency-select">
+      <option value="usd">USD</option>
+      <option value="eur">EUR</option>
+      <option value="inr">INR</option>
+    </select>
+  </div>
+
+  <p id="status-text"></p>
+
+  <table id="coins-table">
+    <thead>
+      <tr>
+        <th>Coin</th>
+        <th>Price</th>
+        <th>24h Change</th>
+      </tr>
+    </thead>
+    <tbody id="coins-body"></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
