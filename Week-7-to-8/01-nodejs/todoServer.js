@@ -41,13 +41,36 @@
  */
 const express = require("express");
 const bodyParser = require("body-parser");
+const fs = require("fs");
+const path = require("path");
 
 const app = express();
 
 app.use(bodyParser.json());
 
+const TODOS_FILE = path.join(__dirname, "todos.json");
+
 const todos = [];
-const id = 0;
+let id = 1;
+
+function loadTodos() {
+  try {
+    const data = fs.readFileSync(TODOS_FILE, "utf-8");
+    const savedTodos = JSON.parse(data);
+    todos.push(...savedTodos);
+  } catch (err) {
+    // file doesn't exist yet or is invalid/empty, start with no todos
+  }
+
+  const maxId = todos.reduce((max, t) => Math.max(max, t.id), 0);
+  id = maxId + 1;
+}
+
+function saveTodos() {
+  fs.writeFileSync(TODOS_FILE, JSON.stringify(todos, null, 2));
+}
+
+loadTodos();
 
 app.get("/", (req, res) => {
   res.send("hi world");
@@ -63,11 +86,11 @@ app.put("/todos/:id", updateTodo);
 app.delete("/todos/:id", deleteTodo);
 
 function getAllTodos(req, res) {
-  res.send(200).json(todos);
+  res.status(200).json(todos);
 }
 
 function getTodo(req, res) {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   const todo = todos.find((t) => t.id === id);
 
   if (!todo) return res.sendStatus(404);
@@ -78,12 +101,44 @@ function getTodo(req, res) {
 function postTodo(req, res) {
   const title = req.body.title;
   const description = req.body.description;
-  const id = id;
+  let postId = id;
   id++;
+  const newTodo = { id: postId, title, description };
+  todos.push(newTodo);
+  saveTodos();
 
-  const newTodo = { id, title, description };
-
-  res.status(201).json({ id, title, description });
+  res.status(201).json(newTodo);
 }
+
+function updateTodo(req, res) {
+  const id = parseInt(req.params.id);
+  const newTitle = req.body.title;
+  const newDescription = req.body.description;
+
+  const index = todos.findIndex((t) => t.id === id);
+  if (index === -1) return res.sendStatus(404);
+
+  todos[index].title = newTitle || todos[index].title;
+  todos[index].description = newDescription || todos[index].description;
+  saveTodos();
+
+  res.sendStatus(200);
+}
+
+function deleteTodo(req, res) {
+  const id = parseInt(req.params.id);
+  const index = todos.findIndex((t) => t.id === id);
+
+  if (index === -1) return res.sendStatus(404);
+
+  todos.splice(index, 1);
+  saveTodos();
+
+  res.sendStatus(200);
+}
+
+app.use((req, res) => {
+  res.sendStatus(404);
+});
 
 module.exports = app;

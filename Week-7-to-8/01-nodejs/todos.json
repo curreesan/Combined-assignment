@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Buy groceries",
+    "description": "Milk, eggs, bread, and coffee"
+  },
+  {
+    "id": 2,
+    "title": "Finish todo server assignment",
+    "description": "Implement persistence with fs module"
+  },
+  {
+    "id": 3,
+    "title": "Apply to fullstack + AI roles",
+    "description": "Update resume and send out applications"
+  }
+]
